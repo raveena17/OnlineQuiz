@@ -1,0 +1,33 @@
+{% if attendees %}
+ 
+    {% for attendee in attendees%}
+ 
+    <ul>
+ 
+    <li>
+        <h4> </h4>
+        <h4>Name:{{ attendee.name }}</h4>
+        <h4>Qualification:{{ attendee.qualification }}</h4>
+        <h4>Age:{{ attendee.age }}</h4>
+        <h4>Phone No:{{ attendee.phoneNo }}</h4>
+        <h4>Mail Id:{{ attendee.mailId }}</h4>
+        <h4>Address:{{ attendee.address }}</h4>
+        <h4>DOB:{{ attendee.date_of_birth }}</h4>
+        <h4>Gender:{{ attendee.gender }}</h4>
+        <h4>Language:{{ attendee.language }}</h4>
+
+    </li>
+ 
+ 
+    </ul>
+ 
+{% endfor %}
+ 
+    {% else %}
+    <h1>No attendee entries found on the database.</h1>
+ 
+ 
+{% endif %}
+
+
+       

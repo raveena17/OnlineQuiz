@@ -1,0 +1,45 @@
+<html>
+<center>
+    <head>
+      
+      <h2>WELCOME CHOOSE YOUR LANGUAGE</h2>
+     
+      <style>
+      body{
+        background-color: gray;
+      }
+      </style>
+
+    </head>
+ 
+        <body>
+             
+            <form action="/Aptitude/python_question/" method="get">
+
+            {% csrf_token %}
+            <table border="1">
+              <tr>
+                <td>
+                  <input type = "submit" value="Python" name="add"/></br>
+                </td>
+              </tr>
+            </table>
+            
+            </form>
+            <form action="/Aptitude/java_question/" method="get">
+
+            {% csrf_token %}
+            <table border="1">
+              <tr>
+                <td>
+                  <input type = "submit" value="Java" name="add"/></br>
+                </td>
+              </tr>
+            </table>
+            
+            </form>
+
+        </body>
+
+</center>
+</html>

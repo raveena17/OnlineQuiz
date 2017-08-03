@@ -1,0 +1,92 @@
+<html>
+<head>
+  {% load static %}
+  <script src="{% static 'js/jquery-1.12.4.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.dataTables.min.css' %}" /> -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css
+" />
+  <h2><center> ATTENDEE LIST </center></h2>
+  
+  <div id="msg" align="center"></div>
+
+
+<style>
+body{
+  background-color: gray;
+}
+</style>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#table_id').DataTable({"scrollX": true}); 
+
+} );
+
+
+function delete_fun(id){
+  $.ajax({ 
+  url: '/Aptitude/delete_attendee/', 
+  type: 'GET', 
+  data: {"id":id},
+ success: function(json) {
+                       
+                       location.reload(); 
+                       $("#msg").html(json);
+                   }
+});
+}
+</script>
+</head>
+
+ 
+ <body><center>
+{% if postlist %} 
+   
+     {% csrf_token %}
+     <table border="1" id="table_id">
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Qualification</th>
+        <th>Age</th>
+        <th>PhoneNo </th>
+        <th>MailID </th>
+        <th>Address</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Language</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for post in postlist %}
+          <label for="post{{ forloop.counter }}">
+        <tr>
+          <td>{{post.name}}</td>
+          <td>{{post.qualification}}</td>
+          <td>{{post.age}}</td>
+          <td>{{post.phoneNo}}</td>
+          <td>{{post.mailId}}</td>
+          <td>{{post.address}}</td>
+          <td>{{post.date_of_birth}}</td>
+          <td>{{post.gender}}</td>
+          <td>{{post.language}}</td>
+         
+          <td><input type = "button" onclick="delete_fun({{post.id}})" value="DELETE" name="delete" id="{{forloop.counter}}"/></td>
+            
+        </tr></label>
+        {% endfor %}
+       
+     </tbody>
+     </table> 
+
+    
+{% else %}    
+
+   <strong>There is no post</strong>
+{%endif%}
+</body></center>
+</html>

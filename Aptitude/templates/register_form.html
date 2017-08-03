@@ -1,0 +1,86 @@
+<head>
+	<h2><center><b>REGISTRATION</b></center> </h2>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#Date_of_birth" ).datepicker({dateFormat: 'yy-mm-dd'});
+  } );
+  </script>
+
+ 
+<style>
+body{
+	background-color: gray;
+}
+</style>
+</head>
+ 
+ <body><center>
+  <form action="/Aptitude/save_attendee_details/" method="post">
+  {% csrf_token %}
+<table border="2">
+  <tr>
+    <td>Name</td>
+    <td>
+      <input type="textbox" name="name" placeholder="Name" data-toggle="tooltip" title="Please enter the name "size="20" required >
+    </td>
+  </tr>
+  <tr>
+    <td>Qualification</td>
+    <td><input type="textbox" name="qualification" placeholder="qualification" size="20" required ></td>
+  </tr>
+
+  <tr>
+    <td>Age</td>
+    <td><input type="textbox" name="age" placeholder="age" size="20" required ></td>
+  </tr>
+   <tr>
+    <td>Phone No</td>
+    <td><input type="textbox" name="phoneNo" placeholder="phoneNo" size="20" required ></td>
+  </tr>
+  <tr>
+    <td>MailID</td>
+    <td><input type="email" name="mailId" id="Email" placeholder="Email" data-toggle="tooltip" title="Please enter valid Email" size="20" required></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><input type="textbox" name="address" placeholder="address" size="20" required ></td>
+  </tr>
+  <tr>
+    <td>Date Of Birth</td>
+    <td><input type="text" id="Date_of_birth" name="date_of_birth" placeholder="date_of_birth" data-toggle="tooltip" title="Please enter your date of birth"size="20" required></td>
+  </tr>
+
+  <tr>
+    <td>Gender</td>
+    <td><input type="radio" name="gender" size="20" value="male" checked> Male
+        <input type="radio" name="gender" size="20"value="female" required> Female<br>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>Language</td>
+    <td><input type="radio" name="language" size="20" value="python" checked> Python
+        <input type="radio" name="language" size="20"value="java" required> Java<br>
+    </td>
+  </tr>
+
+
+
+
+
+</table>
+{% csrf_token %}
+<P><input type="submit" value="SAVE" name="add">
+  <input type="reset" value="RESET"</P>
+
+</form>
+</center>
+</body>
+</html>

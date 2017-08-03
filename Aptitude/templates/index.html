@@ -1,0 +1,22 @@
+<head>
+<body>
+<center><h1>QUIZ</h1></center>
+<table width="100%" border="0" >
+  <tr>
+    <td bgcolor="gray" height="400" width="100%">
+		{% if latest_question_list %}
+		    <ul>
+		    {% for question in latest_question_list %}
+		        <li><a href="{% url 'Aptitude:question' question.id %}">{{ question.question_text }}</a></li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>No questions are available.</p>
+		{% endif %}
+
+		{% load static %}
+	</td>
+  </tr>
+</table>
+</body>
+</head>

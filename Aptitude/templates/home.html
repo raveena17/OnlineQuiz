@@ -1,0 +1,42 @@
+<html>
+<center>
+    <head>
+      
+      <h2>ONLINE TEST</h2>
+     
+      <style>
+      body{
+        background-color: gray;
+      }
+      </style>
+
+    </head>
+ 
+        <body>
+            <form action="/Aptitude/attendee_register/" method="post">
+
+            {% csrf_token %}
+            <table border="1">
+              <tr>
+                <td>
+                  <input type = "submit" value="REGISTRATION" name="add"/></br>
+                </td>
+              </tr>
+            </table>
+           </form>
+           <form action="/Aptitude/attendee_list/" method="post">
+
+          {% csrf_token %}
+          <table border="1">
+            <tr>
+              <td>
+                <input type = "submit" value="ATTENDEE LIST" name="add"/></br>
+              </td>
+            </tr>
+          </table>
+          </form>  
+
+        </body>
+
+</center>
+</html>

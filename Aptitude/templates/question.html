@@ -1,0 +1,33 @@
+<html>
+<head>
+<body>
+<table width="100%" border="0" >
+  <tr>
+    <td bgcolor="gray" height="400" width="100%">
+		<h1>{{ question.question_text }}</h1>
+
+		<!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+ -->
+		<!-- {{ question.id|add:"1" }} -->
+
+		<form action="{% url 'Aptitude:question' question.id|add:"1" %}" method="get">
+		{% csrf_token %}
+		{% for choice in question.choice_set.all %}
+		    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+		    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+		{% endfor %}
+
+		<br><br><input type="submit" value="Next" />
+		</form>
+
+		<form action="/Aptitude/validate/" method="post">
+		{% csrf_token %}
+		<input type="submit" value="Submit" />
+		</form>
+
+	</td>
+  </tr>
+</table>
+</body>
+</head>
+</html>
